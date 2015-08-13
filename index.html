@@ -1,4 +1,17 @@
 <!doctype html>
+<style>
+	body {
+		background-color: #000;
+	}
+	.pixelated {
+		image-rendering: optimizeSpeed;             /* Legal fallback */
+		image-rendering: -moz-crisp-edges;          /* Firefox        */
+		image-rendering: optimize-contrast;         /* CSS3 Proposed  */
+		image-rendering: crisp-edges;               /* CSS4 Proposed  */
+		image-rendering: pixelated;                 /* CSS4 Proposed  */
+		-ms-interpolation-mode: nearest-neighbor;   /* IE8+           */
+	}
+</style>
 <body>
 	<script src="out.js"></script>
 </body>

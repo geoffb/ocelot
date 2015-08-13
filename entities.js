@@ -2,8 +2,10 @@ var utils = require("./utils");
 
 // Core components
 var transform = require("./components/transform");
+var body = require("./components/body");
 var shape = require("./components/shape");
 var text = require("./components/text");
+var sprite = require("./components/sprite");
 
 var components = {};
 var prefabs = {};
@@ -12,8 +14,10 @@ var entities = [];
 
 exports.init = function () {
 	this.defineComponent("transform", transform);
+	this.defineComponent("body", body);
 	this.defineComponent("shape", shape);
 	this.defineComponent("text", text);
+	this.defineComponent("sprite", sprite);
 };
 
 exports.defineComponent = function (key, component) {
