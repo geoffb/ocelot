@@ -23,6 +23,7 @@ exports.init = function (width, height) {
 	stage = canvas.create(width, height);
 	document.body.appendChild(stage);
 	ctx = stage.getContext("2d");
+	ctx.imageSmoothingEnabled = false;
 	resize();
 	window.addEventListener("resize", resize, false);
 };
