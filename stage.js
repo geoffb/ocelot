@@ -11,7 +11,6 @@ var resize = function () {
 	var ratioY = clientHeight / stage.height;
 	var scale = Math.min(ratioX, ratioY);
 
-	stage.className = "pixelated";
 	var style = stage.style;
 	style.position = "absolute";
 	style.transformOrigin = "0 0";
