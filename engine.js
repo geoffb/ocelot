@@ -1,6 +1,7 @@
 var stage = require("./stage");
 var time = require("./time");
 var entities = require("./entities");
+var tween = require("./tween");
 
 var update = function (dt) {
 	var list = entities.get();
@@ -8,6 +9,8 @@ var update = function (dt) {
 		//var entity = list[i];
 		entities.trigger(list[i], "update", [dt]);
 	}
+
+	tween.update(dt);
 
 	stage.render();
 };
