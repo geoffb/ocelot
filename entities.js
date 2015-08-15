@@ -7,6 +7,7 @@ var shape = require("./components/shape");
 var text = require("./components/text");
 var sprite = require("./components/sprite");
 var tilemap = require("./components/tilemap");
+var light = require("./components/light");
 
 var components = {};
 var prefabs = {};
@@ -20,6 +21,7 @@ exports.init = function () {
 	this.defineComponent("text", text);
 	this.defineComponent("sprite", sprite);
 	this.defineComponent("tilemap", tilemap);
+	this.defineComponent("light", light);
 };
 
 exports.defineComponent = function (key, component) {
