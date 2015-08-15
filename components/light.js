@@ -1,4 +1,5 @@
 var canvas = require("../canvas");
+var color = require("../utils/color");
 
 var buffer = canvas.create(1, 1);
 var bctx = buffer.getContext("2d");
@@ -10,8 +11,8 @@ exports.render = function (ctx) {
 	buffer.width = size;
 	buffer.height = size;
 	var gradient = bctx.createRadialGradient(r, r, 0, r, r, r);
-	gradient.addColorStop(0, "rgba(255, 0, 255, 0.5)");
-	gradient.addColorStop(1, "rgba(255, 0, 255, 0)");
+	gradient.addColorStop(0, color.rgba(light.color, light.intensity));
+	gradient.addColorStop(1, color.rgba(light.color, 0));
 	bctx.fillStyle = gradient;
 	bctx.fillRect(0, 0, size, size);
 	ctx.save();
