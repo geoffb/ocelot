@@ -1,33 +1,13 @@
 var utils = require("./utils");
 
-// Core components
-var transform = require("./components/transform");
-var shape = require("./components/shape");
-var text = require("./components/text");
-var sprite = require("./components/sprite");
-var tilemap = require("./components/tilemap");
-var light = require("./components/light");
-
 var components = {};
 var prefabs = {};
 
 var entities = [];
 
-exports.init = function () {
-	this.defineComponent("transform", transform);
-	this.defineComponent("shape", shape);
-	this.defineComponent("text", text);
-	this.defineComponent("sprite", sprite);
-	this.defineComponent("tilemap", tilemap);
-	this.defineComponent("light", light);
-};
-
-exports.defineComponent = function (key, component) {
-	components[key] = component;
-};
-
-exports.definePrefab = function (key, prefab) {
-	prefabs[key] = prefab;
+exports.init = function (componentData, prefabData) {
+	components = componentData;
+	prefabs = prefabData;
 };
 
 exports.get = function () {

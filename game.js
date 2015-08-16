@@ -13,7 +13,6 @@ var update = function (dt) {
 
 	var list = entities.get();
 	for (var i = 0; i < list.length; ++i) {
-		//var entity = list[i];
 		entities.trigger(list[i], "update", [dt, keys]);
 	}
 
@@ -30,17 +29,13 @@ var keyup = function (e) {
 	keys[e.keyCode] = false;
 };
 
-exports.init = function (width, height) {
-	stage.init(width, height);
+exports.init = function (config) {
+	stage.init(config.width, config.height);
+	scenes = config.scenes;
+	entities.init(config.components, config.prefabs);
 
 	window.addEventListener("keydown", keydown, false);
 	window.addEventListener("keyup", keyup, false);
-
-	entities.init();
-};
-
-exports.defineScene = function (key, data) {
-	scenes[key] = data;
 };
 
 exports.loadScene = function (key) {
