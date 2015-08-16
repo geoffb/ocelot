@@ -22,6 +22,12 @@ exports.trigger = function (entity, method, args) {
 	}
 };
 
+exports.triggerAll = function (method, args) {
+	for (var i = 0; i < entities.length; ++i) {
+		exports.trigger(entities[i], method, args);
+	}
+};
+
 exports.spawn = function (key) {
 	// TODO: Handle missing prefab key
 	var entity = utils.clone(prefabs[key]);
