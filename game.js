@@ -10,14 +10,8 @@ var activeScene = null;
 
 var update = function (dt) {
 	activeScene.update(dt, keys);
-
-	var list = entities.get();
-	for (var i = 0; i < list.length; ++i) {
-		entities.trigger(list[i], "update", [dt, keys]);
-	}
-
+	entities.triggerAll("update", [dt, keys]);
 	tween.update(dt);
-
 	stage.render();
 };
 
