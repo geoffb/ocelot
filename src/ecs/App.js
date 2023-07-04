@@ -3,13 +3,13 @@ import * as ComponentGroup from "./ComponentGroup.js";
 const GlobalEntityID = 0;
 
 export function create() {
-	return {
+	const app = {
 		lastUpdate: 0,
 		deltaTime: 0,
 		nextEntityID: 1,
 		components: {},
 		bootSystems: [],
-		systems: []
+		systems: [],
 	};
 }
 
@@ -59,4 +59,15 @@ export function update(app, time) {
 	for (const system of app.systems) {
 		system(app);
 	}
+}
+
+export function start(app) {
+	App.boot(app);
+
+	const frame = function (time) {
+		App.update(app, time);
+		requestAnimationFrame(frame);
+	};
+
+	frame(performance.now());
 }

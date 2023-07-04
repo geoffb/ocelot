@@ -11,5 +11,5 @@ export function create(width, height) {
 	return {
 		canvas,
 		context,
-	}
+	};
 }

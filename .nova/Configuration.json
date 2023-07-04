@@ -1,5 +1,5 @@
 {
-  "editor.default_syntax" : "javascript",
-  "workspace.color" : 1,
-  "workspace.name" : "Ocelot"
+	"editor.default_syntax": "javascript",
+	"workspace.color": 1,
+	"workspace.name": "Ocelot"
 }

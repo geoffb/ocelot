@@ -2,7 +2,14 @@
 	"name": "@geoffb/ocelot",
 	"version": "0.0.0",
 	"decription": "Minimalist HTML5 2D game engine",
-	"keywords": ["game", "engine", "2d", "canvas", "html5", "browser"],
+	"keywords": [
+		"game",
+		"engine",
+		"2d",
+		"canvas",
+		"html5",
+		"browser"
+	],
 	"author": {
 		"name": "Geoff Blair",
 		"email": "geoff@mousepox.io"
@@ -10,8 +17,16 @@
 	"repository": "geoffb/ocelot",
 	"bugs": "https://github.com/geoffb/ocelot/issues",
 	"license": "MIT",
-	"main": "src/index.js",
+	"main": "src/main.js",
 	"files": [
 		"src"
-	]
+	],
+	"prettier": {},
+	"scripts": {
+		"lint": "prettier -c .",
+		"format": "prettier -w ."
+	},
+	"devDependencies": {
+		"prettier": "^2.8.8"
+	}
 }

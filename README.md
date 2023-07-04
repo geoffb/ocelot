@@ -6,8 +6,8 @@ A minimalist HTML5 2D game engine. Created specifically for the [Js13kGames][js1
 
 ## Features
 
-* Entity/component
-* Tweening
-* Asset loading
+- Entity/component
+- Tweening
+- Asset loading
 
 [js13k]: http://js13kgames.com/
