@@ -1,17 +1,17 @@
 {
-	"name": "ocelot",
+	"name": "@geoffb/ocelot",
 	"version": "0.0.0",
 	"decription": "Minimalist HTML5 2D game engine",
 	"keywords": ["game", "engine", "2d", "canvas", "html5", "browser"],
 	"author": {
 		"name": "Geoff Blair",
-		"email": "geoff@lostdecadegames.com"
+		"email": "geoff@mousepox.io"
 	},
 	"repository": "geoffb/ocelot",
 	"bugs": "https://github.com/geoffb/ocelot/issues",
 	"license": "MIT",
-	"main": "lib/game",
+	"main": "src/index.js",
 	"files": [
-		"lib"
+		"src"
 	]
 }
