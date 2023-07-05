@@ -3,14 +3,27 @@ import * as ComponentGroup from "./ComponentGroup.js";
 const GlobalEntityID = 0;
 
 export function create() {
-	const app = {
+	return {
 		lastUpdate: 0,
 		deltaTime: 0,
 		nextEntityID: 1,
 		components: {},
 		bootSystems: [],
 		systems: [],
+		resources: {},
 	};
+}
+
+export function getComponents(app, componentID) {
+	return app.components[componentID].list;
+}
+
+export function addResource(app, key, data) {
+	app.resources[key] = data;
+}
+
+export function getResource(app, key) {
+	return app.resources[key];
 }
 
 export function addBootSystems(app, ...systems) {
@@ -36,7 +49,11 @@ export function addEntityComponent(app, id, componentID, data) {
 }
 
 export function getEntityComponent(app, id, componentID) {
-	// TODO: Get entity component
+	let group = app.components[componentID];
+	if (group === undefined) {
+		throw new Error(`Invalid component: id=${id}, component=${componentID}`);
+	}
+	return ComponentGroup.get(group, id);
 }
 
 export function addGlobalComponent(app, componentID, data) {
@@ -45,6 +62,13 @@ export function addGlobalComponent(app, componentID, data) {
 
 export function getGlobalComponent(app, componentID) {
 	return getEntityComponent(app, GlobalEntityID, componentID);
+}
+
+export function addPlugins(app, ...plugins) {
+	for (const plugin of plugins) {
+		addBootSystems(app, ...plugin.boot);
+		addSystems(app, ...plugin.update);
+	}
 }
 
 export function boot(app) {
@@ -61,13 +85,16 @@ export function update(app, time) {
 	}
 }
 
-export function start(app) {
-	App.boot(app);
+export function run(app) {
+	// Execute boot systems
+	boot(app);
 
+	// Create frame update handler
 	const frame = function (time) {
-		App.update(app, time);
+		update(app, time);
 		requestAnimationFrame(frame);
 	};
 
+	// Kick off main loop
 	frame(performance.now());
 }

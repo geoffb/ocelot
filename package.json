@@ -1,14 +1,15 @@
 {
 	"name": "@geoffb/ocelot",
-	"version": "0.0.0",
-	"decription": "Minimalist HTML5 2D game engine",
+	"version": "0.1.0",
+	"decription": "Minimalist ECS HTML5 Canvas 2D game engine",
 	"keywords": [
 		"game",
 		"engine",
 		"2d",
 		"canvas",
 		"html5",
-		"browser"
+		"browser",
+		"ecs"
 	],
 	"author": {
 		"name": "Geoff Blair",
